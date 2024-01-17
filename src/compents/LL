@@ -1,0 +1,44 @@
+const form = document.getElementById('form-sign-up')
+const nameInput = document.getElementById('username').value
+const emailInput = document.getElementById('email').value
+const passInput = document.getElementById('password').value
+const confirmPassInput = document.getElementById('confirmPassword').value
+const messagee = document.querySelectorAll('.sign-up form .error-p')
+
+
+form.addEventListener('submit' , (e)=>{
+  e.preventDefault();
+  checkInput();
+})
+
+function checkInput(){
+     if(nameInput === ""){
+         setError(nameInput , "username cannot be blank" , 0 )
+     }else{
+         setSuccess(nameInput, "" , 0)
+     }
+
+     if(emailInput === ""){
+         setError(emailInput, "email cannot be blank", 1)
+     }else{
+         setSuccess(emailInput, "" , 1)
+     }
+
+     if(passInput === ""){
+         setError(passInput,"password cannot be blank", 2)
+     }else if(confirmPassInput !== passInput){
+         setError(confirmPassInput,"the passwords aren't matching ", 2)
+     }else{
+         setSuccess(passInput,"",2)
+         setSuccess(confirmPassInput,"",2)
+     }
+}
+
+function setSuccess(input,message,i){
+ input.className = 'success'
+ messagee[i].innerHTML = message
+ }
+ function setError (input,message,i){
+     input.className = 'error'
+     messagee[i].innerHTML = message
+ }

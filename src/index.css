@@ -1,13 +1,552 @@
-body {
+/* golabel rules */
+
+*{
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+
+:root {
+  --primary-color : #00925D;
+  --socndary-color: #EB3F5E;
+  --main-text-color: #FFFFFF;
+  --socandry-text-color: #9CA4AB;
+  --third-text-color: #28262D;
+  --main-background-color: #0D0C0F;
+  --second-background-color: #08080A;
+}
+
+html{
+  scroll-behavior: smooth;
+}
+
+body{
+  font-family: 'Roboto', sans-serif;
+  background-color: var(--main-background-color);
+
+}
+
+ul{
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul a{
+  text-decoration: none;
+}
+.container {
+padding-left: 15px;
+padding-right: 15px;
+margin-left: auto;
+margin-right: auto;
+}
+/* Small */
+@media (min-width: 768px) {
+.container {
+  width: 750px;
+}
+}
+/* Medium */
+@media (min-width: 992px) {
+.container {
+  width: 970px;
+}
+}
+/* Large */
+@media (min-width: 1200px) {
+.container {
+  width: 1170px;
+}
+}
+
+/* navbar */
+
+nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px 0;
+}
+
+nav .left-side{
+  width: 30%;
+}
+nav .left-side p{
+  color: var(--main-text-color);
+  font-size: 24px;
+  word-spacing: -5px;
+  font-weight: 600;
+}
+.logo{
+  color: var(--main-text-color);
+  font-size: 18px;
+  border: solid 2px var(--primary-color);
+  border-radius: 4px;
+}
+nav .mid-side{
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+nav .mid-side ul{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  align-items: center;
+}
+nav .mid-side ul li a{
+  color: var(--socandry-text-color);
+  font-weight: 400;
+
+}
+@media (min-width: 768px) {
+  nav .mid-side ul li a:hover{
+    color: var(--main-text-color);
+  }
+}
+nav .right-side{
+  width: 30%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+nav .right-side i {
+  color: var(--main-text-color);
+  font-size: 18px;
+  margin-right: 30px;
+  cursor: pointer;
+  font-weight: 100;
+}
+.primary-button{
+  padding: 10px 20px;
+  background-color: transparent;
+  color: var(--main-text-color);
+  outline: solid 1px var(--main-text-color);
+  font-weight: 600;
+  border-radius: 8px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease;
+
+}
+.socndary-button{
+  padding: 10px 20px;
+  background-color: var(--primary-color);
+  color: var(--main-text-color);
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  transition: transform 0.3s ease;
+
+}
+
+
+@media (min-width: 768px){
+  .socndary-button:hover{
+    transform: scale(0.9);
+  
+  }
+  .primary-button:hover{
+    transform: scale(0.9);
+  }
+
+
+}
+
+.close-icon{
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  top: 20px;
+  right: 0;
+  cursor: pointer;
+  display: none;
+}
+.close-icon .line{
+  height: 20px;
+  width: 2px;
+  background-color: #FFFFFF;
+  position: absolute;
+
+}
+.l-1{
+  transform: rotate(-50deg);
+}
+.l-2{
+  transform: rotate(50deg);
+}
+.list-icon{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  display: none;
+  cursor: pointer;
+}
+.list-icon .line{
+  width: 28px;
+  height: 4px;
+  background-color: #FFFFFF;
+  border-radius: 2px;
+  margin-bottom: 5px;
+}
+.list-icon .l-3{
+  width: 18px;
+}
+nav .mid-side ul li .active{
+  color: var(--main-text-color);
+}
+
+@media (max-width: 990px){
+  nav .left-side p{
+    font-size: 20px;
+  }
+  nav .left-side p .logo{
+    font-size: 14px;
+  }
+  nav .mid-side ul li a{
+    font-size: 14px;
+  } 
+  nav .right-side i{
+    font-size: 14px;
+  }
+  .primary-button{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+  .socndary-button{
+    padding: 5px 10px;
+    font-size: 12px;
+    border-radius: 4px;
+  }
+}
+@media (max-width: 768px){
+  nav .mid-side {
+    display: none;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100vh;
+    
+  }
+  nav .mid-side::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(25, 25, 25, 0.5);
+    backdrop-filter: blur(5px);
+  }
+  nav .mid-side ul {
+    height: 66%;
+    width: 80%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    z-index: 999;
+    border-top: solid 2px var(--socandry-text-color);
+  }
+  nav .mid-side ul li{
+    margin-bottom: 40px;
+  }
+  nav .right-side .buttons{
+    position: absolute;
+    top: 80px;
+    width: 40%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 999;
+  }
+  nav .right-side .buttons button{
+    width: 60%;
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
+  nav .right-side{
+    align-items: flex-start;
+  }
+  nav .right-side i {
+    font-size: 22px;
+  }
+  .list-icon{
+    display: flex;
+  }
+  nav .left-side p {
+    font-size: 24px;
+  }
+  nav .left-side p .logo{
+    font-size: 18px;
+  }
+}
+@media (max-width: 628px){
+  nav .left-side{
+    width: 50%;
+  }
+  nav .left-side p {
+    font-size: 18px;
+  }
+  nav .left-side p .logo{
+    font-size: 14px;
+  }
+}
+/* sign up */
+
+.sign-up-container{
+  width: 100%;
+  height: 100%;
+  display: none;
+}
+
+.sign-up-container::before{
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(25, 25, 25, 0.884);
+  filter: brightness(0.5);
+  z-index: 777;
+}
+.sign-up{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: var(--main-background-color);
+  z-index: 999;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 18px;
+  border: 0.2px solid rgba(117, 117, 117, 0.5);
+}
+.sign-up .head{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.sign-up .head .primary-button{
+  padding: 6px 12px;
+}
+.sign-up .head .primary-button:hover{
+  background-color: var(--socndary-color);
+  outline: none;
+  transform: scale(1);
+}
+.sign-up .head .text-box .p-1 {
+  color: var(--main-text-color);
+  font-size: 18px;
+  font-weight: 400;
+  margin-bottom: 5px;
+}
+.sign-up .head .text-box .logo {
+  font-size: 14px;
+}
+.sign-up .head .text-box .p-2 {
+  color: var(--socandry-text-color);
+  font-size: 12px;
+  font-weight: 300;
+}
+.sign-up form{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+.sign-up form label{
+  color: var(--main-text-color);
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.sign-up form input{
+  width: 100%;
+  height: 45px;
+  border: 0.2px solid rgba(117, 117, 117, 0.5);
+  background-color: var(--second-background-color);
+  margin-bottom: 15px;
+  border-radius: 8px;
+  color: var(--main-text-color);
+  padding-left: 10px;
+}
+.sign-up form input::placeholder{
+  font-size: 12px;
+  padding-left: 10px;
+}
+.sign-up form .check-box{
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  align-items: center;
+}
+.sign-up form .check{
+  width: 20px;
+  height: 20px;
+  border: 1px solid var(--socandry-text-color);
+  border-radius: 10px;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.sign-up form .check-box p{
+  color: var(--socandry-text-color);
+  font-size: 12px;
+}
+.sign-up form .check-box p .form-span{
+  font-size: 14px;
+  color: var(--main-text-color);
+  font-weight: 600;
+}
+.form-button{
+  width: 100%;
+  padding: 15px 5px;
+  background-color: var(--main-text-color);
+  color: var(--socandry-text-color);
+  border: none;
+  border-radius: 10px;
+  cursor: no-drop;
+}
+.sign-up form .success{
+  border: 1px solid var(--main-text-color);
+}
+.sign-up form .error{
+  border: 1px solid var(--socndary-color);
+}
+.sign-up form .error-p{
+  color: var(--socndary-color);
+  margin-top: -9px;
+  font-size: 10px;
+  margin-bottom: 5px;
+}
+.sign-up form .check-box .checked{
+  background-color: var(--primary-color);
+}
+.sign-up form .success-button{
+  background-color: var(--primary-color);
+  color: var(--main-text-color);
+  cursor: pointer;
+}
+.sign-up .icons-head{
+  width: 100%;
+  justify-content: space-between;
+  height: 50px;
+  margin-bottom: 20px;
+  padding: 20px 40px 0;
+  display: none;
+}
+.back-icon{
+  position: relative;
+}
+.back-icon .line{
+ position: absolute;
+  width: 3px;
+  height: 25px;
+  background-color: var(--main-text-color);
+  border-radius: 3px;
+}
+.sign-up .icons-head .back-icon .line-1{
+  transform: rotate(40deg);
+}
+.sign-up .icons-head .back-icon .line-2{
+  transform: rotate(-40deg);
+}
+.foot{
+  width: 100%;
+  text-align: center;
+}
+.foot p{
+  color: var(--socandry-text-color);
+  font-size: 12px;
+}
+.foot p .form-span{
+  font-size: 14px;
+  color: var(--main-text-color);
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 5px;
+}
+@media (max-width: 880px){
+
+  .sign-up form .check{
+    width: 15px;
+    height: 15px;
+    border-radius: 7.5px;
+  }
+  .sign-up form .check-box p{
+    font-size: 10px;
+  }
+  .sign-up form .check-box p .form-span{
+    font-size: 12px;
+    color: var(--main-text-color);
+    font-weight: 600;
+  }
+}
+@media (max-width: 768px){
+  .sign-up{
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    padding-top: 20px;
+    border: none;
+  }
+  .sign-up .head button{
+    display: none;
+  }
+  .sign-up .head .text-box{
+    text-align: center;
+    width: 100%;
+  }
+  .sign-up .head .text-box .p-1 {
+    font-size: 24px;
+    font-weight: 400;
+  }
+  .sign-up .head .text-box .logo {
+    font-size: 20px;
+  }
+  .sign-up .head .text-box .p-2 {
+    color: var(--socandry-text-color);
+    font-size: 18px;
+    font-weight: 300;
+  }
+  .sign-up form{
+    width: 90%;
+    height: 100%;
+    padding: 20px;
+  }
+  .sign-up form input{
+    height: 50px;
+    width: 100%;
+  }
+  .sign-up form .error-p{
+    margin-bottom: 20px;
+  }
+  .sign-up .icons-head{
+    display: flex;
+  }
 }
